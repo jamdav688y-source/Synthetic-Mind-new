@@ -1,0 +1,113 @@
+```md
+# Incident Artifact Schema (Markdown)
+
+Incidents are not about punishment.
+They are about **system correction**.
+
+An Incident is valid only if it includes every required field below.
+
+---
+
+## Required Fields
+
+### 1) Incident ID
+- Format: `INC-YYYY-MM-DD-<slug>`
+- Example: `INC-2026-01-29-ungoverned-execution`
+
+### 2) Title
+Short description of what happened.
+
+### 3) Severity
+One of:
+- Sev-0 (near miss)
+- Sev-1 (minor)
+- Sev-2 (major)
+- Sev-3 (critical)
+
+### 4) Owner
+Single accountable human for the fix + institutional change.
+
+### 5) What Happened
+Plain language summary.
+
+### 6) Impact
+Who/what was affected (time, money, trust, safety, ops).
+
+### 7) Root Cause Category
+Choose one:
+- Missing gate
+- Missing ownership
+- Missing rollback
+- Bad assumptions
+- Tool failure
+- Model failure / hallucination
+- Data / retrieval failure
+- Human workflow failure
+- Policy bypass (explicit or implicit)
+
+### 8) Which Control Failed
+Name the missing/failed control-plane primitive:
+- Decision memory
+- Stop authority
+- Auditability
+- Reversibility
+- Permissioned execution
+- Other (define)
+
+### 9) Linked Decision(s)
+Every serious incident must map to one or more Decisions.
+
+If you cannot link an Incident to a Decision, it indicates:
+- ungoverned execution
+- invisible authority
+- a control-plane bypass
+
+All are unacceptable.
+
+### 10) Corrective Action
+The direct fix.
+
+### 11) Institutional Change
+What governance changes permanently:
+- new gate
+- new rule
+- new stop condition
+- new review threshold
+- new monitoring signal
+
+### 12) Prevention Test
+How you verify this won’t repeat (what check proves it).
+
+---
+
+## Minimal Example (Template)
+
+```md
+# INC-YYYY-MM-DD-slug — Title
+
+**Severity:** Sev-2  
+**Owner:** Name / Role
+
+## What Happened
+...
+
+## Impact
+...
+
+## Root Cause Category
+...
+
+## Which Control Failed
+...
+
+## Linked Decisions
+- DEC-...
+
+## Corrective Action
+...
+
+## Institutional Change
+- ...
+
+## Prevention Test
+- ...
